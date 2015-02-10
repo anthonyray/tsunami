@@ -31,15 +31,15 @@ def tsunami():
     phones = cassandre.alertPhones(dat1,dat2,lat,lon,radius,size_req_t,table,keyspace)
     
     # Writing data to cassandra
-    crea_offset = sys.argv[3]
-    crea_loop = sys.argv[4]
+    crea_offset = 100
+    crea_loop = 100
     offset = int(crea_offset)
     for i in range(0,int(crea_loop)):
         if(i == 0):
             test = cassandre.multipleInsertCreation(data=phones[0:offset],table=str(table+'bis'))
             if test:
             	print "writing to db"
-            	cassandre.multipleInsertExec(keyspace=keyspace_t,cmd=test)
+            	cassandre.multipleInsertExec(keyspace=keyspace,cmd=test)
             
         else:
             u = i*offset

@@ -80,7 +80,7 @@ def multipleInsertCreation(data,table="bigtable"):
         cmd = cmd + " " + temp + " \n "
     if len(cmd)>0:
     	return begin + cmd + end
-    else
+    else:
     	return None
 
 def multipleInsertExec(keyspace="",cmd=""):
