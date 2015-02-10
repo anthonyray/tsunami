@@ -1,6 +1,7 @@
 import os
 import cities
 import datetime
+from clustermanager import ClusterManager
 import cassandraTest as cassandre
 from flask import Flask, render_template, request,jsonify
 
@@ -28,6 +29,8 @@ def tsunami():
     table = "bigtable"
     
     # Retrieving data from cassandra
+    cm = ClusterManager()
+    killed_node = cm.get_closest_node(lon,lat)
     phones = cassandre.alertPhones(dat1,dat2,lat,lon,radius,size_req_t,table,keyspace)
     
     # Writing data to cassandra
@@ -48,7 +51,8 @@ def tsunami():
             if test:
             	print "writing to db"
             	cassandre.multipleInsertExec(keyspace=keyspace,cmd=test)
-	
+
+    cm.node_status("encule")
     return jsonify(status="node_down",phones=phones)
 
 
