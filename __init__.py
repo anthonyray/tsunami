@@ -17,8 +17,8 @@ def index():
 @app.route('/tsunami',methods=["POST"])
 def tsunami():
     # Parsing the request
-    lon = request.form["lon"]
-    lat = request.form["lat"]
+    lon = float(request.form["lon"])
+    lat = float(request.form["lat"])
     dat1 = datetime.datetime.strptime(request.form["date"],"%Y-%m-%dT%H:%M")
     dat2 = dat1 + datetime.timedelta(minutes=10)
     radius = 500
