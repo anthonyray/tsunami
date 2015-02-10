@@ -38,6 +38,7 @@ def tsunami():
         if(i == 0):
             test = cassandre.multipleInsertCreation(data=phones[0:offset],table=str(table+'bis'))
             if test:
+            	print "writing to db"
             	cassandre.multipleInsertExec(keyspace=keyspace_t,cmd=test)
             
         else:
@@ -45,6 +46,7 @@ def tsunami():
             uu = u + offset
             test = cassandre.multipleInsertCreation(data=phones[u:uu],table=str(table+'bis'))
             if test:
+            	print "writing to db"
             	cassandre.multipleInsertExec(keyspace=keyspace,cmd=test)
 	
     return jsonify(status="node_down",phones=phones)
