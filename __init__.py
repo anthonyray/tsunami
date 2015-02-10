@@ -27,7 +27,24 @@ def tsunami():
     keyspace = "jap1"
     table = "bigtable"
     
+    # Retrieving data from cassandra
     phones = cassandre.alertPhones(dat1,dat2,lat,lon,radius,size_req_t,table,keyspace)
+    
+    # Writing data to cassandra
+    crea_offset = sys.argv[3]
+    crea_loop = sys.argv[4]
+    offset = int(crea_offset)
+    for i in range(0,int(crea_loop)):
+        if(i == 0):
+            test = cassandre.multipleInsertCreation(data=phones[0:offset],table=str(table+'bis'))
+            cassandre.multipleInsertExec(keyspace=keyspace_t,cmd=test)
+            
+        else:
+            u = i*offset
+            uu = u + offset
+            test = cassandre.multipleInsertCreation(data=phones[u:uu],table=str(table+'bis'))
+            cassandre.multipleInsertExec(keyspace=keyspace,cmd=test)
+	
     return jsonify(status="node_down",phones=phones)
 
 
