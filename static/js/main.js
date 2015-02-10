@@ -63,7 +63,7 @@ $(document).ready(function(){
           console.log(points);
           points.phones.forEach(function(point){
           L.circle([point[0],point[1]], 500, {
-            color: 'red',
+            color: 'green',
             fillColor: '#fff',
             fillOpacity: 0.5
           }).addTo(map);
@@ -71,12 +71,12 @@ $(document).ready(function(){
         L.circle([lat, long], 400000, {
           color: 'red',
           fillColor: '#f03',
-          fillOpacity: 0.1
+          fillOpacity: 0.05
         }).addTo(map);
         L.circle([lat, long], 500, {
           color: 'red',
           fillColor: '#fff',
-          fillOpacity: 0.8
+          fillOpacity: 0.6
         }).addTo(map);
         
         $("#nb_people").text(points.phones.length);
