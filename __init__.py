@@ -1,6 +1,6 @@
 import os
 import cities
-from datetime import datetime
+import datetime
 from flask import Flask, render_template, request,jsonify
 
 tmpl_dir = os.path.dirname(os.path.abspath(__file__))
