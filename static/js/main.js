@@ -68,6 +68,16 @@ $(document).ready(function(){
             fillOpacity: 0.5
           }).addTo(map);
         })
+        L.circle([lat, long], 400000, {
+          color: 'red',
+          fillColor: '#f03',
+          fillOpacity: 0.1
+        }).addTo(map);
+        L.circle([lat, long], 500, {
+          color: 'red',
+          fillColor: '#fff',
+          fillOpacity: 0.8
+        }).addTo(map);
         
         $("#nb_people").text(points.phones.length);
       }
