@@ -78,7 +78,10 @@ def multipleInsertCreation(data,table="bigtable"):
         codegsm = data[i][4]
         temp = "insert into "+table+"(timestamp,latitude,longitude,phone,codegsm) VALUES('"+str(timestamp)+"',"+str(latitude)+","+str(longitude)+",'"+str(phone)+"','"+str(codegsm)+"')"
         cmd = cmd + " " + temp + " \n "
-    return begin + cmd + end
+    if len(cmd)>0:
+    	return begin + cmd + end
+    else
+    	return None
 
 def multipleInsertExec(keyspace="",cmd=""):
     cluster = Cluster()
