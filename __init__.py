@@ -1,6 +1,7 @@
 import os
 import cities
 import datetime
+import cassandraTest as cassandre
 from flask import Flask, render_template, request,jsonify
 
 tmpl_dir = os.path.dirname(os.path.abspath(__file__))
