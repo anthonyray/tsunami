@@ -68,6 +68,8 @@ $(document).ready(function(){
             fillOpacity: 0.5
           }).addTo(map);
         })
+        
+        $("#nb_people").text(points.phones.length);
       }
     });
   }
