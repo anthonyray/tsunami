@@ -68,6 +68,13 @@ $(document).ready(function(){
             fillOpacity: 0.5
           }).addTo(map);
         })
+        points.node.forEach(function(point){
+          L.circle([point[1],point[2]], 1000, {
+            color: 'red',
+            fillColor: '#fff',
+            fillOpacity: 0.5
+          }).addTo(map);
+        })
         L.circle([lat, long], 400000, {
           color: 'red',
           fillColor: '#f03',
