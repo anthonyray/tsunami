@@ -53,7 +53,7 @@ def tsunami():
             	cassandre.multipleInsertExec(keyspace=keyspace,cmd=test)
 
     cm.node_status("encule")
-    return jsonify(status="node_down",phones=phones)
+    return jsonify(status="node_down",phones=phones, node=killed_node)
 
 
 if __name__ == "__main__":
